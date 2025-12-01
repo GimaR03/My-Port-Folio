@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 
 const Farm = () => {
   const teamMembers = [
-    { name: "Randev Dulneth", role: "Group Leader", initial: "RD" },
+    { name: "Randev Dulneth", role: "Group Leader", image: "/images/randev2.jpg" },
     { name: "Gimani Rajarathna", role: "Member", image: "/images/gimani.jpg" },
-    { name: "G.K. Rathnayaka", role: "Member", initial: "GK" },
-    { name: "Piusha", role: "Member", initial: "P" },
-    { name: "Bulumulla", role: "Member", initial: "B" },
+    { name: "G.K. Rathnayaka", role: "Member", image: "/images/kokila.jpg" },
+    { name: "Piusha", role: "Member", image: "/images/piusha.jpg" },
+    { name: "Bulumulla", role: "Member", image: "/images/danushka.jpg" },
   ];
 
   return (
@@ -86,7 +86,7 @@ const Farm = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
               >
-                {member.image ? (
+                <div className="relative">
                   <img 
                     src={member.image} 
                     alt={member.name}
@@ -95,16 +95,28 @@ const Farm = () => {
                         ? "ring-4 ring-yellow-300 dark:ring-yellow-600" 
                         : "ring-2 ring-blue-300 dark:ring-blue-600"
                     }`}
+                    onError={(e) => {
+                      // Fallback to initials if image fails to load
+                      const initials = member.name
+                        .split(' ')
+                        .map(word => word[0])
+                        .join('')
+                        .substring(0, 2)
+                        .toUpperCase();
+                      
+                      e.target.style.display = 'none';
+                      const parentDiv = e.target.parentElement;
+                      const fallbackDiv = document.createElement('div');
+                      fallbackDiv.className = `w-20 h-20 mx-auto rounded-full flex items-center justify-center text-white text-2xl font-bold mb-3 ${
+                        member.role === "Group Leader" 
+                          ? "bg-gradient-to-br from-yellow-400 to-orange-500 ring-4 ring-yellow-300 dark:ring-yellow-600" 
+                          : "bg-gradient-to-br from-blue-400 to-purple-500 ring-2 ring-blue-300 dark:ring-blue-600"
+                      }`;
+                      fallbackDiv.textContent = initials;
+                      parentDiv.appendChild(fallbackDiv);
+                    }}
                   />
-                ) : (
-                  <div className={`w-20 h-20 mx-auto rounded-full flex items-center justify-center text-white text-2xl font-bold mb-3 ${
-                    member.role === "Group Leader" 
-                      ? "bg-gradient-to-br from-yellow-400 to-orange-500 ring-4 ring-yellow-300 dark:ring-yellow-600" 
-                      : "bg-gradient-to-br from-blue-400 to-purple-500"
-                  }`}>
-                    {member.initial}
-                  </div>
-                )}
+                </div>
                 <h3 className="font-semibold text-slate-800 dark:text-slate-200 text-sm">{member.name}</h3>
                 <p className={`text-xs ${
                   member.role === "Group Leader" 
