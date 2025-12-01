@@ -4,6 +4,19 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const Home = () => {
+  const technologies = [
+    { name: "Express", logo: "/images/express.png" },
+    { name: "MongoDB", logo: "/images/mongodb.png" },
+    { name: "JavaScript", logo: "/images/js.png" },
+    { name: "TypeScript", logo: "/images/typescript.png" },
+    { name: "Tailwind CSS", logo: "/images/tailwind.png" },
+    { name: "AWS", logo: "/images/aws.png" },
+    { name: "C", logo: "/images/C_Logo.png" },
+    { name: "C++", logo: "/images/c++.png" },
+    { name: "HTML", logo: "/images/HTML.png" },
+    { name: "CSS", logo: "/images/css.jpg" },
+  ];
+
   return (
     <motion.div
       className="min-h-screen flex flex-col lg:flex-row justify-center items-center bg-slate-100 dark:bg-slate-900 text-slate-800 dark:text-slate-200 px-6 py-12 transition-colors duration-300"
@@ -54,7 +67,7 @@ const Home = () => {
             I create secure, responsive, and SEO-optimized digital solutions that deliver exceptional user experiences.
           </motion.p>
 
-          {/* Call to Action Buttons */}
+          {/* Call to Action Buttons  */}
           <motion.div 
             className="flex flex-col sm:flex-row gap-4 mt-8"
             initial={{ opacity: 0, y: 20 }}
@@ -84,12 +97,39 @@ const Home = () => {
           >
             <p className="text-slate-500 dark:text-slate-400 mb-4">Technologies I Work With</p>
             <div className="flex flex-wrap justify-center lg:justify-start gap-3 text-sm md:text-base">
-              {['Express', 'MongoDB', 'JavaScript', 'TypeScript', 'Tailwind CSS', 'AWS', 'C', 'C++', 'HTML', 'CSS'].map((tech) => (
-                <span key={tech} className="bg-slate-200 dark:bg-slate-800 px-4 py-2 rounded-full text-slate-600 dark:text-slate-300 border border-slate-300 dark:border-slate-700">
-                  {tech}
-                </span>
+              {technologies.map((tech) => (
+                <div 
+                  key={tech.name}
+                  className="group relative bg-slate-200 dark:bg-slate-800 px-3 py-2 rounded-full text-slate-600 dark:text-slate-300 border border-slate-300 dark:border-slate-700 flex items-center gap-2 hover:scale-105 transition-transform duration-300 hover:bg-slate-300 dark:hover:bg-slate-700"
+                >
+                  <div className="w-8 h-8 flex items-center justify-center">
+                    <img 
+                      src={tech.logo} 
+                      alt={tech.name}
+                      className="w-7 h-7 object-contain"
+                      onError={(e) => {
+                        // Fallback if logo fails to load
+                        e.target.style.display = 'none';
+                        const parent = e.target.parentElement;
+                        const fallbackSpan = document.createElement('span');
+                        fallbackSpan.textContent = tech.name.charAt(0);
+                        fallbackSpan.className = "w-7 h-7 flex items-center justify-center font-bold text-lg";
+                        parent.appendChild(fallbackSpan);
+                      }}
+                    />
+                  </div>
+                  <span className="font-medium">{tech.name}</span>
+                  {/* Tooltip on hover */}
+                  <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 bg-slate-800 dark:bg-slate-700 text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none z-10 shadow-lg">
+                    {tech.name}
+                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-slate-800 dark:border-t-slate-700"></div>
+                  </div>
+                </div>
               ))}
             </div>
+            <p className="text-xs text-slate-400 dark:text-slate-500 mt-3">
+              Note: Some logos may not display if image files are missing
+            </p>
           </motion.div>
         </motion.div>
 
