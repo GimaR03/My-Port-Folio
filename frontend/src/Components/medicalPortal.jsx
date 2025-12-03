@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 const MedicalPortal = () => {
   const teamMembers = [
     { name: "Gimani Rajarathna", role: "Group Leader", image: "/images/gimani.jpg" },
-    { name: "Randev Dulneth", role: "Member", initial: "RD" },
-    { name: "G.K. Rathnayaka", role: "Member", initial: "GK" },
+    { name: "Randev Dulneth", role: "Member", image: "/images/randev2.jpg" },
+    { name: "G.K. Rathnayaka", role: "Member", image: "/images/kokila.jpg" },
     { name: "Nimashi Tharnya", role: "Member", image: "/images/mashi.jpg" },
-    { name: "Demini Jayasingha", role: "Member", initial: "DJ" },
+    { name: "Demini Jayasingha", role: "Member", image: "/images/dewmini.jpg" },
   ];
 
   return (
@@ -32,9 +32,11 @@ const MedicalPortal = () => {
         </motion.h1>
 
         <div className="bg-slate-50 dark:bg-slate-800 rounded-lg shadow-lg p-8 border border-slate-200 dark:border-slate-700 mb-8">
-          <div className="h-48 bg-gradient-to-br from-blue-400 to-teal-500 rounded-lg flex items-center justify-center mb-6">
-            <span className="text-white text-8xl">🏥</span>
-          </div>
+          <img 
+            src="/images/mediacalFUll.png" 
+            alt="Online Medical Portal" 
+            className="w-full h-48 object-cover rounded-lg mb-6"
+          />
 
           <div className="inline-block px-4 py-2 bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-300 rounded-full text-sm font-semibold mb-4">
             🎓 University Group Project
@@ -87,25 +89,15 @@ const MedicalPortal = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
               >
-                {member.image ? (
-                  <img 
-                    src={member.image} 
-                    alt={member.name}
-                    className={`w-20 h-20 mx-auto rounded-full object-cover mb-3 ${
-                      member.role === "Group Leader" 
-                        ? "ring-4 ring-yellow-300 dark:ring-yellow-600" 
-                        : "ring-2 ring-blue-300 dark:ring-blue-600"
-                    }`}
-                  />
-                ) : (
-                  <div className={`w-20 h-20 mx-auto rounded-full flex items-center justify-center text-white text-2xl font-bold mb-3 ${
+                <img 
+                  src={member.image} 
+                  alt={member.name}
+                  className={`w-20 h-20 mx-auto rounded-full object-cover mb-3 ${
                     member.role === "Group Leader" 
-                      ? "bg-gradient-to-br from-yellow-400 to-orange-500 ring-4 ring-yellow-300 dark:ring-yellow-600" 
-                      : "bg-gradient-to-br from-blue-400 to-purple-500"
-                  }`}>
-                    {member.initial}
-                  </div>
-                )}
+                      ? "ring-4 ring-yellow-300 dark:ring-yellow-600" 
+                      : "ring-2 ring-blue-300 dark:ring-blue-600"
+                  }`}
+                />
                 <h3 className="font-semibold text-slate-800 dark:text-slate-200 text-sm">{member.name}</h3>
                 <p className={`text-xs ${
                   member.role === "Group Leader" 
