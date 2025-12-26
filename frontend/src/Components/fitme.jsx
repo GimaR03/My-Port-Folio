@@ -11,11 +11,14 @@ const Fitme = () => {
       transition={{ duration: 0.5 }}
     >
       <div className="max-w-4xl mx-auto">
-        <Link to="/projects" className="text-blue-600 dark:text-blue-400 hover:underline mb-6 inline-block">
+        <Link
+          to="/projects"
+          className="text-blue-600 dark:text-blue-400 hover:underline mb-6 inline-block"
+        >
           ← Back to Projects
         </Link>
-        
-        <motion.h1 
+
+        <motion.h1
           className="text-4xl md:text-5xl font-bold mb-6 text-blue-600 dark:text-blue-400"
           initial={{ y: -20 }}
           animate={{ y: 0 }}
@@ -24,9 +27,9 @@ const Fitme = () => {
         </motion.h1>
 
         <div className="bg-slate-50 dark:bg-slate-800 rounded-lg shadow-lg p-8 border border-slate-200 dark:border-slate-700">
-          <img 
-            src="/images/fitmeFull.png" 
-            alt="FitMe App" 
+          <img
+            src="/images/fitmeFull.png"
+            alt="FitMe App"
             className="w-full h-48 object-cover rounded-lg mb-6"
           />
 
@@ -34,20 +37,27 @@ const Fitme = () => {
             👤 Self Activity Project
           </div>
 
-          <h2 className="text-2xl font-semibold mb-4 text-slate-800 dark:text-slate-200">Project Overview</h2>
+          <h2 className="text-2xl font-semibold mb-4">Project Overview</h2>
           <p className="text-slate-500 dark:text-slate-400 mb-6">
-            This mobile application was developed as part of my Mobile Application Development Module – Assignment 2. 
-            FitMe is a fitness tracking app built with Kotlin for Android devices.
+            This mobile application was developed as part of my Mobile
+            Application Development Module – Assignment 2. FitMe is a fitness
+            tracking app built with Kotlin for Android devices.
           </p>
 
-          <h2 className="text-2xl font-semibold mb-4 text-slate-800 dark:text-slate-200">Technologies Used</h2>
+          <h2 className="text-2xl font-semibold mb-4">Technologies Used</h2>
           <div className="flex flex-wrap gap-2 mb-6">
-            <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-300 rounded-full">Kotlin</span>
-            <span className="px-3 py-1 bg-green-100 dark:bg-green-900/50 text-green-600 dark:text-green-300 rounded-full">Android</span>
-            <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-300 rounded-full">Mobile App</span>
+            <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-300 rounded-full">
+              Kotlin
+            </span>
+            <span className="px-3 py-1 bg-green-100 dark:bg-green-900/50 text-green-600 dark:text-green-300 rounded-full">
+              Android
+            </span>
+            <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-300 rounded-full">
+              Mobile App
+            </span>
           </div>
 
-          <h2 className="text-2xl font-semibold mb-4 text-slate-800 dark:text-slate-200">Features</h2>
+          <h2 className="text-2xl font-semibold mb-4">Features</h2>
           <ul className="list-disc list-inside text-slate-500 dark:text-slate-400 space-y-2 mb-6">
             <li>Fitness tracking and monitoring</li>
             <li>Workout planning and scheduling</li>
@@ -55,14 +65,26 @@ const Fitme = () => {
             <li>User-friendly mobile interface</li>
           </ul>
 
-          <a 
-            href="https://github.com/GimaR03/FitMe-app-Lab-Exam-2-" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
-          >
-            View on GitHub
-          </a>
+          {/* Buttons */}
+          <div className="flex flex-wrap gap-4">
+            <a
+              href="https://github.com/GimaR03/FitMe-app-Lab-Exam-2-"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+            >
+              View on GitHub
+            </a>
+
+            <a
+              href="https://vimeo.com/1149272746?share=copy&fl=sv&fe=ci"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+            >
+              ▶ View Video
+            </a>
+          </div>
         </div>
       </div>
     </motion.div>

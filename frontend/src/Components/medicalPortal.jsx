@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 const MedicalPortal = () => {
   const teamMembers = [
     { name: "Gimani Rajarathna", role: "Group Leader", image: "/images/gimani.jpg" },
-    { name: "Randev Dulneth", role: "Member", image: "/images/randev2.jpg" },
-    { name: "G.K. Rathnayaka", role: "Member", image: "/images/kokila.jpg" },
-    { name: "Nimashi Tharnya", role: "Member", image: "/images/mashi.jpg" },
-    { name: "Demini Jayasingha", role: "Member", image: "/images/dewmini.jpg" },
+    { name: "H.G.R Dulneth", role: "Member", image: "/images/randev2.jpg" },
+    { name: "G.K Rathnayaka", role: "Member", image: "/images/kokila.jpg" },
+    { name: "R.G.N.T Rankoth ", role: "Member", image: "/images/mashi.jpg" },
+    { name: "D.C Jayasinghe", role: "Member", image: "/images/dewmini.jpg" },
   ];
 
   return (
