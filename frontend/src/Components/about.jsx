@@ -7,35 +7,35 @@ const About = () => {
   const timeline = [
     {
       year: "2017",
-      title: "Sri Lanka Under 15 Malaysia Hockey Tour",
+      title: "Represented in the 44th Pesta Hockey International Tournament.",
       description:
         "I served as the captain of my hockey team during a match held in Penang City, Malaysia, in 2017.",
       icon: "🏑",
     },
     {
       year: "2022",
-      title: "A/L Physical Science Stream",
+      title: "Completed studies in the G.C.E. Advanced Level (A/L) Physical Science Stream.",
       description:
         "Completed Advanced Level examinations in Physical Science stream, building a strong foundation in mathematics and physics.",
       icon: "📚",
     },
     {
       year: "2023",
-      title: "University Journey Begins",
+      title: "Embarked on my university journey.",
       description:
         "Joined Sri Lanka Institute of Information Technology (SLIIT) and chose software engineering specialization, marking the beginning of my formal computer science education.",
       icon: "🎓",
     },
     {
       year: "2024",
-      title: "Full Stack Development",
+      title: "Initiated my journey in full-stack development.",
       description:
         "Dived deep into modern web development, mastering React, Next.js, and backend technologies while maintaining excellent academic performance.",
       icon: "💻",
     },
     {
       year: "2026",
-      title: "Starting Internship",
+      title: "I am eager to commence my internship in the future.",
       description:
         "Embarking on my first professional internship, applying academic knowledge to real-world projects, collaborating with industry experts, and gaining hands-on experience in full-stack software development.",
       icon: "💼",
@@ -159,7 +159,7 @@ const About = () => {
               </div>
               <div className="bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl p-4 shadow-inner w-full max-w-xs">
                 <p className="text-white font-semibold text-center">
-                  BSc (Hons) in Information Technology (Software Engineering)
+                  BSc (Hons) in Information Technology 
                 </p>
               </div>
             </motion.div>
