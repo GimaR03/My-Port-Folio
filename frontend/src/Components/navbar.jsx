@@ -59,7 +59,9 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
             <motion.h1 
-              className="text-2xl font-bold text-blue-600 dark:text-blue-400"
+              className="text-2xl font-bold 
+              bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent 
+              dark:from-blue-400 dark:to-cyan-400"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
