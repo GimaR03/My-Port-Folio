@@ -22,6 +22,10 @@ Repository: `https://github.com/GimaR03/gimani-portfolio-web`
 4. Find **"gimani-portfolio-web"** in the list
 5. Click **"Import"** button next to it
 
+**⚠️ If you see "Name already used" error:**
+- Just change the **Project Name** to something else like `gimani-portfolio` or `portfolio-gimani`
+- The project name doesn't have to match your repository name!
+
 ### Step 3: Configure Settings (IMPORTANT - 1 minute)
 
 **⚠️ CRITICAL - Change these settings:**
