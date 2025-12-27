@@ -59,15 +59,24 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
-            <motion.h1 
-              className="text-2xl font-bold 
-              bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent 
-              dark:from-blue-400 dark:to-cyan-400"
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              Gimani Rajarathna
-            </motion.h1>
+            <Link to="/home" className="flex items-center space-x-3 group">
+              <motion.img
+                src="/images/logo.png"
+                alt="Logo"
+                className="h-10 w-10 object-contain"
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              />
+              <motion.h1 
+                className="text-2xl font-bold 
+                bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent 
+                dark:from-blue-400 dark:to-cyan-400"
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                Gimani Rajarathna
+              </motion.h1>
+            </Link>
           </div>
 
           <div className="hidden md:block">
