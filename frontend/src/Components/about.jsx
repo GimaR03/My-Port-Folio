@@ -230,73 +230,7 @@ const About = () => {
           </motion.div>
         </div>
 
-        {/* Skills Section */}
-        <motion.div
-          className="mt-8 bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-900 rounded-2xl shadow-2xl p-8 border border-slate-200/50 dark:border-slate-700/50 backdrop-blur-sm"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-        >
-          <h3 className="text-2xl font-bold mb-6 text-center bg-gradient-to-r from-cyan-500 to-blue-600 bg-clip-text text-transparent">
-            Skills & Technologies
-          </h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[
-              { name: "JavaScript", level: "95%" },
-              { name: "React", level: "90%" },
-              { name: "Node.js", level: "85%" },
-              { name: "MongoDB", level: "85%" },
-              { name: "Express.js", level: "85%" },
-              { name: "Kotlin", level: "80%" },
-              { name: "Java", level: "80%" },
-              { name: "Tailwind CSS", level: "90%" },
-            ].map((skill, index) => (
-              <motion.div
-                key={index}
-                className="bg-gradient-to-br from-slate-200/50 to-slate-300/50 dark:from-slate-700/50 dark:to-slate-600/50 p-4 rounded-xl text-center border border-slate-300/30 dark:border-slate-600/30 backdrop-blur-sm"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{
-                  y: -3,
-                  rotateX: 5,
-                  rotateY: 5,
-                  transition: { duration: 0.3 },
-                }}
-              >
-                <p className="font-bold text-slate-800 dark:text-white text-sm">
-                  {skill.name}
-                </p>
-                <div className="w-full bg-slate-300/50 dark:bg-slate-600/50 rounded-full h-2 mt-2 overflow-hidden">
-                  <div
-                    className="bg-gradient-to-r from-cyan-400 to-blue-500 h-2 rounded-full shadow-inner animate-pulse-slow"
-                    style={{ width: skill.level }}
-                  ></div>
-                </div>
-                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-                  {skill.level}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
       </div>
-
-      <style jsx>{`
-        @keyframes pulse-slow {
-          0%,
-          100% {
-            opacity: 1;
-          }
-          50% {
-            opacity: 0.5;
-          }
-        }
-        .animate-pulse-slow {
-          animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        }
-      `}</style>
     </motion.div>
   );
 };

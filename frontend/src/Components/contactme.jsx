@@ -1,15 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaGithub, FaLinkedin, FaWhatsapp, FaTelegram } from "react-icons/fa";
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaGithub, FaLinkedin, FaWhatsapp, FaTelegram, FaCheckCircle, FaExclamationCircle } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
+import emailjs from "@emailjs/browser";
 
 const ContactMe = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const [isLoading, setIsLoading] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState({ type: "", message: "" });
+
+  // EmailJS Configuration
+  // Replace these with your EmailJS credentials
+  const EMAILJS_SERVICE_ID = "YOUR_SERVICE_ID"; // Get from EmailJS dashboard
+  const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID"; // Get from EmailJS dashboard
+  const EMAILJS_PUBLIC_KEY = "YOUR_PUBLIC_KEY"; // Get from EmailJS dashboard
+
   const contactDetails = {
     email: "gimarajarathna@gmail.com",
     phone: "070-219-6195",
     address: "160, Kondadeniya, Katugastota",
     github: "https://github.com/GimaR03",
-    linkedin: "https://linkedin.com/in/yourprofile", // Add your LinkedIn if available
+    linkedin: "https://www.linkedin.com/in/gimani-rajarathna-032b12312",
     whatsapp: "https://wa.me/94702196195",
     telegram: "https://t.me/yourusername" // Add your Telegram if available
   };
@@ -33,6 +49,76 @@ const ContactMe = () => {
   const handleCopyToClipboard = (text) => {
     navigator.clipboard.writeText(text);
     alert(`${text} copied to clipboard!`);
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+    // Clear status message when user starts typing
+    if (submitStatus.type) {
+      setSubmitStatus({ type: "", message: "" });
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setSubmitStatus({ type: "", message: "" });
+
+    // Validate EmailJS credentials
+    if (
+      EMAILJS_SERVICE_ID === "YOUR_SERVICE_ID" ||
+      EMAILJS_TEMPLATE_ID === "YOUR_TEMPLATE_ID" ||
+      EMAILJS_PUBLIC_KEY === "YOUR_PUBLIC_KEY"
+    ) {
+      setSubmitStatus({
+        type: "error",
+        message: "EmailJS is not configured. Please set up your EmailJS credentials.",
+      });
+      setIsLoading(false);
+      return;
+    }
+
+    try {
+      // Send email using EmailJS
+      const result = await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject || "Contact Form Submission",
+          message: formData.message,
+          to_email: contactDetails.email,
+        },
+        EMAILJS_PUBLIC_KEY
+      );
+
+      if (result.text === "OK") {
+        setSubmitStatus({
+          type: "success",
+          message: "Message sent successfully! I'll get back to you soon.",
+        });
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+      }
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      setSubmitStatus({
+        type: "error",
+        message: "Failed to send message. Please try again or contact me directly via email.",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -185,7 +271,7 @@ const ContactMe = () => {
                 {/* Gmail */}
                 <motion.button
                   onClick={handleEmailClick}
-                  className="flex items-center space-x-3 px-5 py-3 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-900 dark:text-white rounded-lg border-2 border-slate-300 dark:border-slate-600 hover:border-slate-400 dark:hover:border-slate-500 transition-all duration-300 group"
+                  className="flex items-center space-x-3 px-5 py-3 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-900 dark:text-white rounded-lg border-2 border-slate-500 dark:border-slate-600 hover:border-slate-400 dark:hover:border-slate-500 transition-all duration-300 group"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -194,15 +280,15 @@ const ContactMe = () => {
                   <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">→</span>
                 </motion.button>
 
-                {/* WhatsApp */}
+                {/* LinkedIn */}
                 <motion.button
-                  onClick={handleWhatsAppClick}
-                  className="flex items-center space-x-3 px-5 py-3 bg-green-500 hover:bg-green-600 dark:bg-green-600 dark:hover:bg-green-700 text-white rounded-lg transition-all duration-300 group"
+                  onClick={() => handleSocialClick(contactDetails.linkedin)}
+                  className="flex items-center space-x-3 px-5 py-3 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 dark:from-blue-400 dark:to-cyan-400 dark:hover:from-blue-500 dark:hover:to-cyan-500 text-white rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl group"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <FaWhatsapp className="text-xl text-white" />
-                  <span className="font-medium">WhatsApp</span>
+                  <FaLinkedin className="text-xl" />
+                  <span className="font-medium">LinkedIn</span>
                   <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">→</span>
                 </motion.button>
               </div>
@@ -220,7 +306,35 @@ const ContactMe = () => {
             bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent 
             dark:from-blue-400 dark:to-cyan-400">Send Me a Message</h2>
             
-            <form className="space-y-6">
+            <form id="contact-form" className="space-y-6" onSubmit={handleSubmit}>
+              {/* Success/Error Message */}
+              {submitStatus.type && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className={`p-4 rounded-xl flex items-center space-x-3 ${
+                    submitStatus.type === "success"
+                      ? "bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800"
+                      : "bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800"
+                  }`}
+                >
+                  {submitStatus.type === "success" ? (
+                    <FaCheckCircle className="text-green-500 text-xl flex-shrink-0" />
+                  ) : (
+                    <FaExclamationCircle className="text-red-500 text-xl flex-shrink-0" />
+                  )}
+                  <p
+                    className={`text-sm font-medium ${
+                      submitStatus.type === "success"
+                        ? "text-green-700 dark:text-green-300"
+                        : "text-red-700 dark:text-red-300"
+                    }`}
+                  >
+                    {submitStatus.message}
+                  </p>
+                </motion.div>
+              )}
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-slate-600 dark:text-slate-300 mb-2">
@@ -228,6 +342,9 @@ const ContactMe = () => {
                   </label>
                   <input 
                     type="text" 
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
                     required
                     className="w-full px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-slate-700 text-slate-800 dark:text-slate-200 transition-all duration-300 outline-none"
                     placeholder="John Doe"
@@ -240,6 +357,9 @@ const ContactMe = () => {
                   </label>
                   <input 
                     type="email" 
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
                     required
                     className="w-full px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-slate-700 text-slate-800 dark:text-slate-200 transition-all duration-300 outline-none"
                     placeholder="john@example.com"
@@ -253,6 +373,9 @@ const ContactMe = () => {
                 </label>
                 <input 
                   type="text" 
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleInputChange}
                   className="w-full px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-slate-700 text-slate-800 dark:text-slate-200 transition-all duration-300 outline-none"
                   placeholder="Project collaboration or job opportunity"
                 />
@@ -264,30 +387,37 @@ const ContactMe = () => {
                 </label>
                 <textarea 
                   rows="5"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
                   required
                   className="w-full px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-slate-700 text-slate-800 dark:text-slate-200 transition-all duration-300 resize-none outline-none"
                   placeholder="Hello, I would like to discuss..."
                 ></textarea>
               </div>
               
+              {/* Send Message Button - Inside the white box */}
               <motion.button
                 type="submit"
-                className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 dark:from-blue-400 dark:to-cyan-400 dark:hover:from-blue-500 dark:hover:to-cyan-500 text-white font-semibold py-4 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+                disabled={isLoading}
+                className={`w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 dark:from-blue-400 dark:to-cyan-400 dark:hover:from-blue-500 dark:hover:to-cyan-500 text-white font-bold text-lg py-5 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl ${
+                  isLoading ? "opacity-70 cursor-not-allowed" : ""
+                }`}
+                whileHover={isLoading ? {} : { scale: 1.02 }}
+                whileTap={isLoading ? {} : { scale: 0.98 }}
               >
-                Send Message
+                {isLoading ? "Sending..." : "Send Message"}
               </motion.button>
             </form>
-
-            {/* Additional Info */}
-            <div className="mt-8 pt-8 border-t border-slate-200 dark:border-slate-700">
-              <div className="flex items-center justify-center space-x-2 text-slate-600 dark:text-slate-400">
-                <FaEnvelope className="text-blue-500" />
-                <span>Response time: Usually within 24 hours</span>
-              </div>
-            </div>
           </motion.div>
+        </div>
+
+        {/* Response Time - Centered below sections */}
+        <div className="max-w-6xl mx-auto mt-8 flex items-center justify-center">
+          <div className="flex items-center space-x-2 text-slate-600 dark:text-slate-400">
+            <FaEnvelope className="text-blue-500" />
+            <span>Response time: Usually within 24 hours</span>
+          </div>
         </div>
 
         {/* Quick Contact Bar */}

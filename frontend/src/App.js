@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './Components/navbar';
 import Home from './Components/home';
 import About from './Components/about';
+import Skills from './Components/skills';
 import ViewProject from './Components/viewproject';
 import ContactMe from './Components/contactme';
 import Certification from './Components/certification';
@@ -23,6 +24,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/skills" element={<Skills />} />
           <Route path="/projects" element={<ViewProject />} />
           <Route path="/contact" element={<ContactMe />} />
           <Route path="/certifications" element={<Certification />} />
