@@ -1,7 +1,7 @@
 # 🚀 DEPLOY YOUR PORTFOLIO NOW - 5 MINUTES!
 
 Your code is already on GitHub! ✅
-Repository: `https://github.com/GimaR03/my-portfolio-app`
+Repository: `https://github.com/GimaR03/gimani-portfolio-web`
 
 ---
 
@@ -19,7 +19,7 @@ Repository: `https://github.com/GimaR03/my-portfolio-app`
 1. After signing in, you'll see a dashboard
 2. Click the big **"Add New Project"** button
 3. You'll see your GitHub repositories
-4. Find **"my-portfolio-app"** in the list
+4. Find **"gimani-portfolio-web"** in the list
 5. Click **"Import"** button next to it
 
 ### Step 3: Configure Settings (IMPORTANT - 1 minute)
@@ -49,7 +49,7 @@ Repository: `https://github.com/GimaR03/my-portfolio-app`
 
 After deployment completes:
 - You'll see: **"Congratulations! Your project has been deployed"**
-- Your live URL will be: `https://my-portfolio-app-xxxxx.vercel.app`
+- Your live URL will be: `https://gimani-portfolio-web-xxxxx.vercel.app`
 - **Click the URL to see your live portfolio!**
 
 ---
@@ -67,7 +67,7 @@ After deployment completes:
 ## 🔗 YOUR DEPLOYMENT URL
 
 After deployment, your portfolio will be live at:
-**`https://my-portfolio-app-xxxxx.vercel.app`**
+**`https://gimani-portfolio-web-xxxxx.vercel.app`**
 
 (Replace `xxxxx` with your actual deployment ID)
 
