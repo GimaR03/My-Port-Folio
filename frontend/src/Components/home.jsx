@@ -47,9 +47,13 @@ const Home = () => {
           {/* Name Highlight */}
           <div className="mb-8">
             <h2 className="text-2xl md:text-3xl font-light text-slate-500 dark:text-slate-400 mb-2">
-              I'm <span className="font-bold text-blue-600 dark:text-blue-400">Gimani Rajarathna</span>
+              I'm <span className="font-bold 
+              bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent 
+              dark:from-blue-400 dark:to-cyan-400">Gimani Rajarathna</span>
             </h2>
-            <h3 className="text-xl md:text-2xl font-semibold text-blue-600 dark:text-blue-400">
+            <h3 className="text-xl md:text-2xl font-semibold 
+            bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent 
+            dark:from-blue-400 dark:to-cyan-400">
               MERN Stack Specialist
             </h3>
           </div>
@@ -62,8 +66,12 @@ const Home = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             I specialize in building scalable, high-performance web applications for global users. 
-            With expertise in <span className="font-semibold text-blue-600 dark:text-blue-400">Express</span>,{" "}
-            <span className="font-semibold text-blue-600 dark:text-blue-400">MongoDB</span>, and modern UI/UX design, 
+            With expertise in <span className="font-semibold 
+            bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent 
+            dark:from-blue-400 dark:to-cyan-400">Express</span>,{" "}
+            <span className="font-semibold 
+            bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent 
+            dark:from-blue-400 dark:to-cyan-400">MongoDB</span>, and modern UI/UX design, 
             I create secure, responsive, and SEO-optimized digital solutions that deliver exceptional user experiences.
           </motion.p>
 
@@ -76,7 +84,7 @@ const Home = () => {
           >
             <Link 
               to="/projects"
-              className="bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 text-center"
+              className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 dark:from-blue-400 dark:to-cyan-400 dark:hover:from-blue-500 dark:hover:to-cyan-500 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 text-center shadow-lg hover:shadow-xl"
             >
               View Projects
             </Link>
