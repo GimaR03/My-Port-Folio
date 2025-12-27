@@ -92,7 +92,7 @@ const Home = () => {
           </h2>
 
           <h3 className={`text-xl font-semibold mt-2 ${gradientText}`}>
-            MERN Stack Specialist
+            BSc in IT Student | Full-Stack Developer | MERN Stack
           </h3>
 
           <p className="mt-6 text-slate-500 dark:text-slate-400 leading-relaxed max-w-xl">
