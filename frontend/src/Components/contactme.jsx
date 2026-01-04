@@ -22,7 +22,8 @@ const ContactMe = () => {
 
   const contactDetails = {
     email: "gimarajarathna@gmail.com",
-    phone: "070-219-6195",
+    phone: "+94 70 219 6195",
+    phoneLink: "+94702196195", // For tel: links (no spaces)
     address: "160, Kondadeniya, Katugastota",
     github: "https://github.com/GimaR03",
     linkedin: "https://www.linkedin.com/in/gimani-rajarathna-032b12312",
@@ -35,7 +36,7 @@ const ContactMe = () => {
   };
 
   const handlePhoneClick = () => {
-    window.location.href = `tel:${contactDetails.phone}`;
+    window.location.href = `tel:${contactDetails.phoneLink}`;
   };
 
   const handleWhatsAppClick = () => {
@@ -347,7 +348,7 @@ const ContactMe = () => {
                     onChange={handleInputChange}
                     required
                     className="w-full px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-slate-700 text-slate-800 dark:text-slate-200 transition-all duration-300 outline-none"
-                    placeholder="John Doe"
+                    placeholder="Ex:  A.B.C. Silva"
                   />
                 </div>
                 
@@ -362,7 +363,7 @@ const ContactMe = () => {
                     onChange={handleInputChange}
                     required
                     className="w-full px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-slate-700 text-slate-800 dark:text-slate-200 transition-all duration-300 outline-none"
-                    placeholder="john@example.com"
+                    placeholder="Ex:  abcd@example.com"
                   />
                 </div>
               </div>

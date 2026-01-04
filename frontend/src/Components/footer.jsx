@@ -17,7 +17,8 @@ const Footer = () => {
 
   const contactDetails = {
     email: "gimarajarathna@gmail.com",
-    phone: "070-219-6195",
+    phone: "+94 70 219 6195",
+    phoneLink: "+94702196195", // For tel: links (no spaces)
     address: "160, Kondadeniya, Katugastota",
     github: "https://github.com/GimaR03",
     linkedin: "https://www.linkedin.com/in/gimani-rajarathna-032b12312",
@@ -66,7 +67,7 @@ const Footer = () => {
   };
 
   const handlePhoneClick = () => {
-    window.location.href = `tel:${contactDetails.phone}`;
+    window.location.href = `tel:${contactDetails.phoneLink}`;
   };
 
   const handleWhatsAppClick = () => {
@@ -170,7 +171,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    href={`tel:${contactDetails.phone}`}
+                    href={`tel:${contactDetails.phoneLink}`}
                     className="text-slate-400 hover:text-blue-400 transition-colors duration-200 text-sm flex items-center group"
                   >
                     <FaPhone className="mr-2 text-blue-400" />

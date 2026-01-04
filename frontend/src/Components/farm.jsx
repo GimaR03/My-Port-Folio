@@ -89,7 +89,7 @@ const Farm = () => {
           {/* Buttons */}
           <div className="flex flex-wrap gap-4">
             <a
-              href="https://github.com/GimaR03/smart-farm-management"
+              href="https://github.com/GimaR03/smart_farm_management_system"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 dark:from-blue-400 dark:to-cyan-400 dark:hover:from-blue-500 dark:hover:to-cyan-500 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
